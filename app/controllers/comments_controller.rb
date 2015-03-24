@@ -1,17 +1,23 @@
 class CommentsController < ApplicationController
+  before_filter :get_post
+
   def create
-  	@post = Post.find(params[:post_id])
   	@comment = @post.comments.build(params.permit[:comment])
   	@comment.save
-  	redirect_to @posts
+  	redirect_to @post
   end
 
   def destroy
   end
-   private
+  
+  private
+
+  def get_post
+    @post = Post.find(params[:post_id])
+  end
 
   def comment_params
-      params.require(:comment).permit(:text)
-   end
+    params.require(:comment).permit(:text)
+  end
 
 end
