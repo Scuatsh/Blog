@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Baruc Romero</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<div class="titulo">
+	<br>
+	<center><h1> :Blog!</h1></center>
+	<br>
+</div>
+ 
+</head>
+<body>
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+
+<%- if user_signed_in? %>
+ <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete %>
+<% end %>
+
+<%= yield %>
+<br>
+<br>
+
+
+</body>
+<FOOTER><center><FOOTER>BY: Baruc Villa.</FOOTER></center></FOOTER>
+</html>

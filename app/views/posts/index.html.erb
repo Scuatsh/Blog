@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class= "banner">
+
+<h1><br>Lista de Post´s</h1>
+<%= link_to 'New Post', new_post_path %>
+</div>
+
+<table >
+ <!-- <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> -->
+
+  <tbody>
+    <% @posts.each do |post| %>
+ 
+   
+      <tr>
+        <td><h2><%= link_to post.title,post %></h2></td>
+      </tr>
+
+      <tr>
+        <td>Autor: <%= post.text %></td>
+        <td>|<%= time_ago_in_words post.created_at %> ago</td>
+      </tr>
+    
+
+    <% end %>
+    </tbody>
+</table>
+
+<br>
+
+
